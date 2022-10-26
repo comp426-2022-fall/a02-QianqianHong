@@ -22,12 +22,18 @@ if (args.n) {
   latitude = args.n;
 } else if (args.s) {
   latitude = '-' + args.s;
+} else {
+  console.log("Latitude must be in range");
+  process.exit(0);
 }
 if (args.e) {
   longitude = args.e;
 } else if (args.w) {
   longitude = '-' + args.w;
-} 
+} else {
+  console.log("Longitude must be in range");
+  process.exit(0);
+}
 
 const timezone = args.z || moment.tz.guess();
 
@@ -38,7 +44,7 @@ const day_precipitation = data.daily.precipitation_hours[args.d];
 
 if (args.j) {
   console.log(data); 
-  process.exit();
+  process.exit(0);
 }
 
 let whichDay = '';
@@ -55,5 +61,3 @@ if (day_precipitation == 0) {
 } else {
   console.log("You might need your galoshes " + whichDay);
 }
-
-process.exit(0); 
