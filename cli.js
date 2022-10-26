@@ -54,4 +54,6 @@ if (day_precipitation == 0) {
   console.log("You will not need your galoshes " + whichDay);
 } else {
   console.log("You might need your galoshes " + whichDay);
-} 
+}
+
+process.exit(0); 
